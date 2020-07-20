@@ -5,6 +5,10 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 29
 
+    dataBinding {
+        enabled true
+    }
+
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 29
