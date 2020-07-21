@@ -9,5 +9,5 @@ A sample android project to test **BaseAndroidLibrary** (*in the folder /BaseAnd
 A library which contains basic setup of an android project. 
 
 Includes:
-  1. Base classes such as BaseActivity, BaseFragment, BaseViewMdoel, BaseRepository
+  1. Base classes such as BaseActivity, BaseFragment, BaseViewMdoel, BaseRepository, etc
   2. All the basic dependencies required to setup an advance level android project
