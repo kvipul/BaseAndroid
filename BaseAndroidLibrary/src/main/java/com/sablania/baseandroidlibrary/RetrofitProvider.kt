@@ -7,7 +7,10 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 class RetrofitProvider(val baseUrl: String) {
-    private var retrofit: Retrofit? = null
+
+    companion object {
+        private var retrofit: Retrofit? = null
+    }
 
     fun getRetrofitInstance(): Retrofit {
         if (retrofit == null) {
@@ -18,6 +21,10 @@ class RetrofitProvider(val baseUrl: String) {
                 .build()
         }
         return retrofit!!
+    }
+
+    fun setRetrofitInstance(retro: Retrofit) {
+        retrofit = retro
     }
 
     private fun getOkHttpClient(): OkHttpClient {
