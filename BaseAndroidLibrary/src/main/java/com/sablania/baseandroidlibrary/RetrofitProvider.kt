@@ -9,18 +9,18 @@ import java.security.cert.X509Certificate
 import javax.net.ssl.*
 
 
-class RetrofitProvider(val baseUrl: String) {
+class RetrofitProvider(val baseUrl: String, val trustAllHost: Boolean = false) {
 
     companion object {
         private var retrofit: Retrofit? = null
     }
 
-    fun getRetrofitInstance(trustAllHost: Boolean = false): Retrofit {
+    fun getRetrofitInstance(): Retrofit {
         if (retrofit == null) {
             retrofit = Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
-                .client(getOkHttpClient(trustAllHost))
+                .client(getOkHttpClient())
                 .build()
         }
         return retrofit!!
@@ -30,7 +30,7 @@ class RetrofitProvider(val baseUrl: String) {
         retrofit = retro
     }
 
-    private fun getOkHttpClient(trustAllHost: Boolean): OkHttpClient {
+    private fun getOkHttpClient(): OkHttpClient {
         val builder = OkHttpClient.Builder()
         builder.addNetworkInterceptor(StethoInterceptor())
 
