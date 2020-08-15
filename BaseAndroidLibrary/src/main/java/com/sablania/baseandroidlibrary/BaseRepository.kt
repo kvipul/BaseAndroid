@@ -8,6 +8,9 @@ import retrofit2.Retrofit
  */
 open class BaseRepository(application: Application) {
 
-    fun getRetrofitClient(baseUrl: String): Retrofit = RetrofitProvider(baseUrl).getRetrofitInstance()
+    fun getRetrofitClient(baseUrl: String, trustAllHost: Boolean = false): Retrofit =
+        RetrofitProvider(baseUrl).getRetrofitInstance()
+
+    val TAG = this::class.java.simpleName
 
 }

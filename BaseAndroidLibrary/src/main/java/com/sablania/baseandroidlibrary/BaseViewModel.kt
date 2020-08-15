@@ -7,5 +7,5 @@ import androidx.lifecycle.AndroidViewModel
  * Base ViewModel class for all the ViewModels
  */
 open class BaseViewModel(application: Application) : AndroidViewModel(application) {
-
+    val TAG = this::class.java.simpleName
 }
