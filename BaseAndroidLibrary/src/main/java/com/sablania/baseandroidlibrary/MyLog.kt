@@ -12,18 +12,18 @@ import com.sablania.baseandroidlibrary.BaseAndroidLibrary.firebaseCrashlytics
 
 class MyLog {
     companion object {
-        fun i(tag: String?, msg: String) {
-            Log.i((tag ?: "").plus("Sablania"), msg)
+        fun i(tag: String?, msg: String?) {
+            Log.i((tag ?: "").plus(" Sablania"), msg ?: "null")
             firebaseCrashlytics.log((tag ?: "").plus(" ").plus(msg))
         }
 
-        fun w(tag: String?, msg: String) {
-            Log.w((tag ?: "").plus("Sablania"), msg)
+        fun w(tag: String?, msg: String?) {
+            Log.w((tag ?: "").plus(" Sablania"), msg ?: "null")
             firebaseCrashlytics.log((tag ?: "").plus(" ").plus(msg))
         }
 
-        fun e(tag: String?, msg: String) {
-            Log.e((tag ?: "").plus("Sablania"), msg)
+        fun e(tag: String?, msg: String?) {
+            Log.e((tag ?: "").plus(" Sablania"), msg ?: "null")
             firebaseCrashlytics.log((tag ?: "").plus(" ").plus(msg))
         }
     }
@@ -37,3 +37,9 @@ fun Exception.logStackTrace() {
     printStackTrace()
     firebaseCrashlytics.recordException(this)
 }
+
+fun Throwable.logStackTrace() {
+    printStackTrace()
+    firebaseCrashlytics.recordException(this)
+}
+
