@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import com.google.firebase.analytics.FirebaseAnalytics
+import com.sablania.baseandroidlibrary.BaseAndroidLibrary.firebaseAnalytics
 import com.sablania.baseandroidlibrary.BaseAndroidLibrary.firebaseCrashlytics
 
 /**
@@ -30,7 +31,7 @@ class MyLog {
 }
 
 fun logEvent(context: Context, eventName: String, bundle: Bundle?) {
-    FirebaseAnalytics.getInstance(context).logEvent(eventName, bundle)
+    firebaseAnalytics.logEvent(eventName, bundle)
 }
 
 fun Exception.logStackTrace() {

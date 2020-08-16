@@ -1,5 +1,6 @@
 package com.sablania.baseandroidlibrary
 
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -30,4 +31,12 @@ fun Fragment.showToast(msg: String, showForLongTime: Boolean) {
 
 fun AppCompatActivity.showToast(msg: String, showForLongTime: Boolean) {
     Toast.makeText(this, msg, if(showForLongTime) Toast.LENGTH_LONG else Toast.LENGTH_SHORT).show()
+}
+
+fun redirectToPlayStoreApp(context: Context, appPackageName: String) {
+    try {
+        context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$appPackageName")))
+    } catch (e: ActivityNotFoundException) {
+        context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=$appPackageName")))
+    }
 }

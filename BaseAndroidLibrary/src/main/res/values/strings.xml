@@ -3,4 +3,7 @@
     <string name="something_went_wrong">Something went wrong!</string>
     <string name="something_went_wrong_subtext">An alien is probably blocking your signal…</string>
     <string name="retry">Retry</string>
+    <string name="please_update_your_app_from_google_play_store">Please update your app from google play store for better usage.</string>
+    <string name="download">Download</string>
+    <string name="app_update_is_available">App Update Available</string>
 </resources>
